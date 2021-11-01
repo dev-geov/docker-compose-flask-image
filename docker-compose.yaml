@@ -1,0 +1,24 @@
+version: '3.0'
+
+services:
+  aplicacao:
+    image: geapsi/flask
+    environment:
+    - DB_HOST=banco
+    - DB_USER=container
+    - DB_PASS=godlove33
+    - DB_NAME=container
+    ports:
+    - 5000:5000
+  banco:
+    image: mariadb
+    environment:
+    - MYSQL_ROOT_PASSWORD=godlove22
+    - MYSQL_USER=container
+    - MYSQL_PASSWORD=godlove33
+    - MYSQL_DATABASE=container
+    volumes:
+    - data:/var/lib/mysql
+
+volumes:
+  data: {}
